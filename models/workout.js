@@ -1,7 +1,8 @@
+//Adds in the first require, the schema for Mongoose and then the full workoutScema processes
 const mongoose = require("mongoose");
-
 const Schema = mongoose.Schema;
 
+//Sets upthe model with the days and exercises
 const workoutSchema = new Schema(
     {
         day: {
@@ -46,7 +47,7 @@ const workoutSchema = new Schema(
     }
 );
 
-// adds a dynamically-created property to schema
+// Changes the schema so that it will change
 workoutSchema.virtual("totalDuration").get(function () {
     return this.exercises.reduce((total, exercise) => {
         return total + exercise.duration;
